@@ -12,7 +12,35 @@
 		AD3E39631ED2F787005DC26A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD3E39611ED2F787005DC26A /* Main.storyboard */; };
 		AD3E39651ED2F787005DC26A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD3E39641ED2F787005DC26A /* Assets.xcassets */; };
 		AD3E39681ED2F787005DC26A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD3E39661ED2F787005DC26A /* LaunchScreen.storyboard */; };
+		AD5121101EF2641500B0064B /* InnoLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = AD51210E1EF2641500B0064B /* InnoLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD5121131EF2641500B0064B /* InnoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD51210C1EF2641400B0064B /* InnoLocation.framework */; };
+		AD5121141EF2641500B0064B /* InnoLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD51210C1EF2641400B0064B /* InnoLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AD51211C1EF283A400B0064B /* InnoGetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD51211B1EF283A400B0064B /* InnoGetLocation.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD5121111EF2641500B0064B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD3E39521ED2F787005DC26A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD51210B1EF2641400B0064B;
+			remoteInfo = InnoLocation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD5121181EF2641500B0064B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AD5121141EF2641500B0064B /* InnoLocation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AD3E395A1ED2F787005DC26A /* swift-location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-location.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +50,22 @@
 		AD3E39641ED2F787005DC26A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD3E39671ED2F787005DC26A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD3E39691ED2F787005DC26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD51210C1EF2641400B0064B /* InnoLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = InnoLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD51210E1EF2641500B0064B /* InnoLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InnoLocation.h; sourceTree = "<group>"; };
+		AD51210F1EF2641500B0064B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD51211B1EF283A400B0064B /* InnoGetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnoGetLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AD3E39571ED2F787005DC26A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD5121131EF2641500B0064B /* InnoLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD5121081EF2641400B0064B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				AD3E395C1ED2F787005DC26A /* swift-location */,
+				AD51210D1EF2641500B0064B /* InnoLocation */,
 				AD3E395B1ED2F787005DC26A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AD3E395A1ED2F787005DC26A /* swift-location.app */,
+				AD51210C1EF2641400B0064B /* InnoLocation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +106,28 @@
 			path = "swift-location";
 			sourceTree = "<group>";
 		};
+		AD51210D1EF2641500B0064B /* InnoLocation */ = {
+			isa = PBXGroup;
+			children = (
+				AD51210E1EF2641500B0064B /* InnoLocation.h */,
+				AD51210F1EF2641500B0064B /* Info.plist */,
+				AD51211B1EF283A400B0064B /* InnoGetLocation.swift */,
+			);
+			path = InnoLocation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AD5121091EF2641400B0064B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD5121101EF2641500B0064B /* InnoLocation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		AD3E39591ED2F787005DC26A /* swift-location */ = {
@@ -74,15 +137,36 @@
 				AD3E39561ED2F787005DC26A /* Sources */,
 				AD3E39571ED2F787005DC26A /* Frameworks */,
 				AD3E39581ED2F787005DC26A /* Resources */,
+				AD5121181EF2641500B0064B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AD5121121EF2641500B0064B /* PBXTargetDependency */,
 			);
 			name = "swift-location";
 			productName = "swift-location";
 			productReference = AD3E395A1ED2F787005DC26A /* swift-location.app */;
 			productType = "com.apple.product-type.application";
+		};
+		AD51210B1EF2641400B0064B /* InnoLocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD5121151EF2641500B0064B /* Build configuration list for PBXNativeTarget "InnoLocation" */;
+			buildPhases = (
+				AD5121071EF2641400B0064B /* Sources */,
+				AD5121081EF2641400B0064B /* Frameworks */,
+				AD5121091EF2641400B0064B /* Headers */,
+				AD51210A1EF2641400B0064B /* Resources */,
+				ADEA98A91EF3ED0F0069EA13 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InnoLocation;
+			productName = InnoLocation;
+			productReference = AD51210C1EF2641400B0064B /* InnoLocation.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -96,6 +180,11 @@
 				TargetAttributes = {
 					AD3E39591ED2F787005DC26A = {
 						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					AD51210B1EF2641400B0064B = {
+						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -114,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				AD3E39591ED2F787005DC26A /* swift-location */,
+				AD51210B1EF2641400B0064B /* InnoLocation */,
 			);
 		};
 /* End PBXProject section */
@@ -129,7 +219,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD51210A1EF2641400B0064B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ADEA98A91EF3ED0F0069EA13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD3E39561ED2F787005DC26A /* Sources */ = {
@@ -141,7 +254,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD5121071EF2641400B0064B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD51211C1EF283A400B0064B /* InnoGetLocation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD5121121EF2641500B0064B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD51210B1EF2641400B0064B /* InnoLocation */;
+			targetProxy = AD5121111EF2641500B0064B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AD3E39611ED2F787005DC26A /* Main.storyboard */ = {
@@ -261,6 +390,7 @@
 		AD3E396D1ED2F787005DC26A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "swift-location/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -273,12 +403,58 @@
 		AD3E396E1ED2F787005DC26A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "swift-location/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.innominds.swift-location";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		AD5121161EF2641500B0064B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InnoLocation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.InnoLocation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AD5121171EF2641500B0064B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = InnoLocation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.innominds.InnoLocation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -301,6 +477,16 @@
 				AD3E396E1ED2F787005DC26A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD5121151EF2641500B0064B /* Build configuration list for PBXNativeTarget "InnoLocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD5121161EF2641500B0064B /* Debug */,
+				AD5121171EF2641500B0064B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
