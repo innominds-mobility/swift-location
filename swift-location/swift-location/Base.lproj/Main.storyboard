@@ -29,13 +29,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gnd-s4-tTH"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YD-Ir-3qs">
+                                <rect key="frame" x="0.0" y="89" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BcO-Fe-OYC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2YD-Ir-3qs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="1HM-Ee-Eb2"/>
+                            <constraint firstItem="2YD-Ir-3qs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6T0-y7-14e"/>
                             <constraint firstItem="iay-k5-Cep" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="143" id="Hiq-U0-YuX"/>
                             <constraint firstAttribute="trailing" secondItem="iay-k5-Cep" secondAttribute="trailing" id="Llc-lf-TR5"/>
                             <constraint firstItem="iay-k5-Cep" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rk2-Gg-ptY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iay-k5-Cep" secondAttribute="bottom" id="c8U-N8-0dJ"/>
+                            <constraint firstAttribute="trailing" secondItem="2YD-Ir-3qs" secondAttribute="trailing" id="qgB-zu-jDe"/>
                         </constraints>
                     </view>
                     <connections>

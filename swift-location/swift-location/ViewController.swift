@@ -9,57 +9,69 @@
 import UIKit
 import InnoLocation
 
+/// The purpose of this view controller is to provide a user interface for displaying user location.
+/// There's a matching scene in the *Main.storyboard* file, 
+/// and in that scene there is tableview for showing location details.
+/// Go to Interface Builder for details.
+/// The `ViewController` class is a subclass of the `UIViewController`.
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-   //
+    // MARK: - IBOutlet Properties
+    /// The tableview for the location details.
     @IBOutlet weak var locationTabelView: UITableView!
+    /// Object for InnoGetLocation class
     var locationObj = InnoGetLocation()
-
+    /// cell reuse id (cells that scroll out of view can be reused)
     let cellReUseIdentifier = "cell"
+    /// Data model: location values will be the data for the table view cells
     let locationDetails = NSMutableArray()
 
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(
-                                                ViewController.methodOfReceivedNotification(notification:)),
-                                               name: Notification.Name("NotificationIdentifier"),
+                                                ViewController.receivingLocationNotification(notification:)),
+                                               name: Notification.Name("LocationIdentifier"),
                                                object: nil)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         locationTabelView.register(UITableViewCell.self, forCellReuseIdentifier: cellReUseIdentifier)
         locationObj.getLocation()
-       // self.initLocationManager()
     }
-    func methodOfReceivedNotification(notification: Notification) {
+    /// Notification handler for receiving location
+    ///
+    /// - Parameter notification: notification object
+    func receivingLocationNotification(notification: Notification) {
         //Take Action on Notification
         self.locationDetails.removeAllObjects()
+        /// coordinates object latitude,longitude
         let coordinates = notification.object as? NSArray
 
         self.locationDetails.add(coordinates?.object(at: 0) ?? "nil")
         self.locationDetails.add(coordinates?.object(at: 1) ?? "nil")
         let placeMark = notification.userInfo as NSDictionary?
+        /// Location name
         if let locationName = placeMark?["Name"] as? NSString {
             self.locationDetails.add("LocationName : \(locationName)")
         }
-        // Street address
+        /// Street address
         if let street = placeMark!["Thoroughfare"] as? NSString {
             self.locationDetails.add("Street : \(street)")
 
         }
-        // City
+        /// City name
         if let city = placeMark!["City"] as? NSString {
             self.locationDetails.add("City : \(city)")
         }
-        // State address
+        /// State name
         if let state = placeMark!["State"] as? NSString {
             self.locationDetails.add("State : \(state)")
         }
-        // Country
+        /// Country name
         if let country = placeMark!["Country"] as? NSString {
             self.locationDetails.add("Country : \(country)")
         }
-        // Zip code
+        /// Zip code
         if let zip = placeMark!["ZIP"] as? NSString {
             self.locationDetails.add("Zip : \(zip)")
 
