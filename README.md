@@ -16,6 +16,7 @@ With `InnoGetLocation`, you can get the user's location based on latitude and lo
 * State
 * City
 * ZIP
+
 ![InnoGetLocation Icon](Resources/InnoGetLocation.png "InnoGetLocation Icon")
 #### Usage
 Create an `InnoGetLocation` object .
