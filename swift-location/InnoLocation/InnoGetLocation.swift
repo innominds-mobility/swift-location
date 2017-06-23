@@ -57,19 +57,19 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
                 /// Place details
                 var placeMark: CLPlacemark?
                 placeMark = placemarks?[0]
-                let latDic = [
-                    "Latitude : \(coordinations.latitude)",
-                    "Longitude : \(coordinations.longitude)"
-                ]
+//                let latDic = [
+//                    "Latitude : \(coordinations.latitude)",
+//                    "Longitude : \(coordinations.longitude)"
+//                ]
                 if placeMark?.addressDictionary != nil {
                     NotificationCenter.default.post(name:
                         Notification.Name(rawValue: "LocationIdentifier"),
-                                                    object:latDic, userInfo:placeMark?.addressDictionary)
+                                                    object:userLocation, userInfo:placeMark?.addressDictionary)
                 }
             } else {
                 print("error :: \(String(describing: error))")
             }
         })
-        //manager.stopUpdatingLocation()
+       // manager.stopUpdatingLocation()
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import InnoLocation
+import CoreLocation
 
 /// The purpose of this view controller is to provide a user interface for displaying user location.
 /// There's a matching scene in the *Main.storyboard* file, 
@@ -15,7 +16,7 @@ import InnoLocation
 /// Go to Interface Builder for details.
 /// The `ViewController` class is a subclass of the `UIViewController`.
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    var userCoordinates = CLLocation()
     // MARK: - IBOutlet Properties
     /// The tableview for the location details.
     @IBOutlet weak var locationTabelView: UITableView!
@@ -45,10 +46,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //Take Action on Notification
         self.locationDetails.removeAllObjects()
         /// coordinates object latitude,longitude
-        let coordinates = notification.object as? NSArray
+        self.userCoordinates = (notification.object as? CLLocation)!
 
-        self.locationDetails.add(coordinates?.object(at: 0) ?? "nil")
-        self.locationDetails.add(coordinates?.object(at: 1) ?? "nil")
+//        self.locationDetails.add(coordinates?.object(at: 0) ?? "nil")
+//        self.locationDetails.add(coordinates?.object(at: 1) ?? "nil")
+        self.locationDetails.add("Latitude  :\(String(describing: userCoordinates.coordinate.latitude))")
+        self.locationDetails.add("Longitude  :\(String(describing: userCoordinates.coordinate.longitude))")
         let placeMark = notification.userInfo as NSDictionary?
         /// Location name
         if let locationName = placeMark?["Name"] as? NSString {
@@ -77,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         }
         self.locationTabelView.reloadData()
+
     }
 
     // MARK: - Tableview data source methods
@@ -106,5 +110,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func googleLocationBtnAction(_ sender: Any) {
+        if let googleLocationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "GoogleLocationViewController") as? GoogleLocationViewController {
+            if let navigator = navigationController {
+                googleLocationVC.userLocation = self.userCoordinates
+                navigator.pushViewController(googleLocationVC, animated: true)
+            }
+        }
     }
 }
