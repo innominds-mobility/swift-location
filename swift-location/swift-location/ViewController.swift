@@ -120,4 +120,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    @IBAction func enabledValueChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            locationObj.enabledLocationInBackground(true)
+        } else {
+            locationObj.enabledLocationInBackground(false)
+
+        }
+    }
+    @IBAction func accuracyChanged(_ sender: UISegmentedControl) {
+        locationObj.accuracyChanged(sender.selectedSegmentIndex)
+    }
 }

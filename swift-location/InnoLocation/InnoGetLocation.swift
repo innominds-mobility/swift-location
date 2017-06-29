@@ -21,16 +21,34 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
             locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.requestWhenInUseAuthorization()
+            //locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
         } else {
             print("Location service disabled")
         }
     }
-    func isAuthorizedtoGetUserLocation() {
-        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
+//    func isAuthorizedtoGetUserLocation() {
+//        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+//            locationManager.requestWhenInUseAuthorization()
+//        }
+//    }
+    public func enabledLocationInBackground(_ isEnable: Bool) {
+        if isEnable {
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.stopUpdatingLocation()
         }
+    }
+    public func accuracyChanged(_ index: Int) {
+        let accuracyValues = [
+            kCLLocationAccuracyBestForNavigation,
+            kCLLocationAccuracyBest,
+            kCLLocationAccuracyNearestTenMeters,
+            kCLLocationAccuracyHundredMeters,
+            kCLLocationAccuracyKilometer,
+            kCLLocationAccuracyThreeKilometers]
+        locationManager.desiredAccuracy = accuracyValues[index]
     }
     ///This method will be called each time when a user change his location access preference.
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -70,6 +88,6 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
                 print("error :: \(String(describing: error))")
             }
         })
-       // manager.stopUpdatingLocation()
+        // manager.stopUpdatingLocation()
     }
 }
