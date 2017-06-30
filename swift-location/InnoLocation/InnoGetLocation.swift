@@ -14,7 +14,7 @@ import CoreLocation
 public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
     /// CLLocationManager object for getting the location
     var locationManager: CLLocationManager!
-
+    var oldLocation = CLLocation()
     /// This method declares location delegate,location options and starts the update the location.
     public func getLocation() {
         if CLLocationManager.locationServicesEnabled() {
@@ -33,6 +33,9 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
 //            locationManager.requestWhenInUseAuthorization()
 //        }
 //    }
+    public func setDistanceFilter(_ value: Double) {
+        locationManager.distanceFilter = CLLocationDistance(value)
+    }
     public func enabledLocationInBackground(_ isEnable: Bool) {
         if isEnable {
             locationManager.startUpdatingLocation()
@@ -48,7 +51,7 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
             kCLLocationAccuracyHundredMeters,
             kCLLocationAccuracyKilometer,
             kCLLocationAccuracyThreeKilometers]
-        locationManager.desiredAccuracy = accuracyValues[index]
+            locationManager.desiredAccuracy = accuracyValues[index]
     }
     ///This method will be called each time when a user change his location access preference.
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -63,8 +66,13 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
     }
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         /// User location details
+
         let userLocation: CLLocation = locations[0] as CLLocation
         /// It holds latitude,longitude values
+        let distance = Double(userLocation.distance(from: oldLocation))
+        oldLocation = userLocation
+        print("distance  \(distance)")
+
         let coordinations = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
                                                    longitude: userLocation.coordinate.longitude)
         /// Get the location details

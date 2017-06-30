@@ -17,6 +17,7 @@ class GoogleLocationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "Google Map"
         let coordinations = CLLocationCoordinate2D(latitude: (self.userLocation.coordinate.latitude),
                                                    longitude: (self.userLocation.coordinate.longitude))
         let camera = GMSCameraPosition.camera(withLatitude: coordinations.latitude,

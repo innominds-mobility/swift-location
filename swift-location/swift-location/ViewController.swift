@@ -14,9 +14,10 @@ import CoreLocation
 /// and in that scene there is tableview for showing location details.
 /// Go to Interface Builder for details.
 /// The `ViewController` class is a subclass of the `UIViewController`.
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     var userCoordinates = CLLocation()
     // MARK: - IBOutlet Properties
+    @IBOutlet weak var filterValueTF: UITextField!
     /// The tableview for the location details.
     @IBOutlet weak var locationTabelView: UITableView!
     /// Object for InnoGetLocation class
@@ -32,11 +33,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                                 ViewController.receivingLocationNotification(notification:)),
                                                name: Notification.Name("LocationIdentifier"),
                                                object: nil)
-
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         locationTabelView.register(UITableViewCell.self, forCellReuseIdentifier: cellReUseIdentifier)
         locationObj.getLocation()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isTranslucent = false
+
     }
     /// Notification handler for receiving location
     ///
@@ -106,6 +110,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = self.locationDetails[indexPath.row] as? String
         return cell
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn
+                  range: NSRange, replacementString string: String) -> Bool {
+        let aSet = NSCharacterSet(charactersIn:"0123456789.").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -138,5 +153,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     @IBAction func accuracyChanged(_ sender: UISegmentedControl) {
         locationObj.accuracyChanged(sender.selectedSegmentIndex)
+    }
+    @IBAction func distanceFilterBtnAction(_ sender: Any) {
+        if !(self.filterValueTF.text?.isEmpty)! {
+            locationObj.setDistanceFilter(Double(self.filterValueTF.text!)!)
+
+        }
     }
 }

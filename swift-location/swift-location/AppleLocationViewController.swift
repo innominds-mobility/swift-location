@@ -16,6 +16,7 @@ class AppleLocationViewController: UIViewController {
     var userLocation = CLLocation()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Apple Map"
         let coordinations = CLLocationCoordinate2D(latitude: (self.userLocation.coordinate.latitude),
                                                    longitude: (self.userLocation.coordinate.longitude))
         let region = MKCoordinateRegion(center: coordinations, span:
