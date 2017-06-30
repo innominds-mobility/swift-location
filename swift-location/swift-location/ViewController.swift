@@ -9,7 +9,6 @@
 import UIKit
 import InnoLocation
 import CoreLocation
-
 /// The purpose of this view controller is to provide a user interface for displaying user location.
 /// There's a matching scene in the *Main.storyboard* file, 
 /// and in that scene there is tableview for showing location details.
@@ -117,6 +116,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let navigator = navigationController {
                 googleLocationVC.userLocation = self.userCoordinates
                 navigator.pushViewController(googleLocationVC, animated: true)
+            }
+        }
+    }
+    @IBAction func appleLocationBtnAction(_ sender: Any) {
+        if let appleLocationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "AppleLocationViewController") as? AppleLocationViewController {
+            if let navigator = navigationController {
+                appleLocationVC.userLocation = self.userCoordinates
+                navigator.pushViewController(appleLocationVC, animated: true)
             }
         }
     }

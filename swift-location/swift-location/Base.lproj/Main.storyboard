@@ -57,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJT-HL-3BA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="64" width="185" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="vVG-AS-OJN"/>
                                 </constraints>
@@ -109,6 +109,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5R-Yl-zXQ">
+                                <rect key="frame" x="193" y="64" width="182" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hNj-mL-Ld7"/>
+                                </constraints>
+                                <state key="normal" title="Show Apple map"/>
+                                <connections>
+                                    <action selector="appleLocationBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OdP-rR-4DW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -121,11 +131,14 @@
                             <constraint firstItem="CTf-WL-tfa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EyP-a0-ewX"/>
                             <constraint firstItem="iay-k5-Cep" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="221" id="Hiq-U0-YuX"/>
                             <constraint firstAttribute="trailing" secondItem="iay-k5-Cep" secondAttribute="trailing" id="Llc-lf-TR5"/>
-                            <constraint firstAttribute="trailing" secondItem="TJT-HL-3BA" secondAttribute="trailing" id="Mwi-0J-z6o"/>
+                            <constraint firstAttribute="trailing" secondItem="TJT-HL-3BA" secondAttribute="trailing" constant="190" id="Mwi-0J-z6o"/>
                             <constraint firstAttribute="trailing" secondItem="Tbp-w6-trH" secondAttribute="trailing" id="O2S-uI-LsD"/>
                             <constraint firstItem="iay-k5-Cep" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rk2-Gg-ptY"/>
                             <constraint firstItem="TJT-HL-3BA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Whr-lN-BKh"/>
+                            <constraint firstAttribute="trailing" secondItem="g5R-Yl-zXQ" secondAttribute="trailing" id="aAb-mL-bRp"/>
+                            <constraint firstItem="g5R-Yl-zXQ" firstAttribute="leading" secondItem="TJT-HL-3BA" secondAttribute="trailing" constant="8" id="b5n-0f-wye"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iay-k5-Cep" secondAttribute="bottom" id="c8U-N8-0dJ"/>
+                            <constraint firstItem="g5R-Yl-zXQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="e8e-bW-g2N"/>
                             <constraint firstAttribute="trailing" secondItem="CTf-WL-tfa" secondAttribute="trailing" id="jaQ-MS-iGN"/>
                             <constraint firstItem="Tbp-w6-trH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k55-dc-E9F"/>
                             <constraint firstItem="DLl-go-n77" firstAttribute="top" secondItem="CTf-WL-tfa" secondAttribute="bottom" constant="1" id="nAg-6H-dkC"/>
@@ -159,12 +172,44 @@
             </objects>
             <point key="canvasLocation" x="1759.2" y="154.27286356821591"/>
         </scene>
+        <!--Apple Location View Controller-->
+        <scene sceneID="Yde-YW-YDY">
+            <objects>
+                <viewController storyboardIdentifier="AppleLocationViewController" id="TBM-xj-QuE" customClass="AppleLocationViewController" customModule="swift_location" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sln-2w-3NE"/>
+                        <viewControllerLayoutGuide type="bottom" id="7c2-qE-3O3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mJK-PB-dre">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MyP-E0-ciU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MyP-E0-ciU" firstAttribute="leading" secondItem="mJK-PB-dre" secondAttribute="leading" id="7u7-Da-ViU"/>
+                            <constraint firstItem="MyP-E0-ciU" firstAttribute="top" secondItem="Sln-2w-3NE" secondAttribute="bottom" id="PwS-FL-4Of"/>
+                            <constraint firstAttribute="trailing" secondItem="MyP-E0-ciU" secondAttribute="trailing" id="bjA-GF-gy8"/>
+                            <constraint firstItem="7c2-qE-3O3" firstAttribute="top" secondItem="MyP-E0-ciU" secondAttribute="bottom" id="xaP-mU-jKX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="MyP-E0-ciU" id="l81-3D-4Dn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWg-O2-Gdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2520.8000000000002" y="147.97601199400302"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="O1G-Yt-OKE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lLi-RQ-ljy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PiB-l1-cYe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PiB-l1-cYe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
