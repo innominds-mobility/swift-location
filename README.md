@@ -56,7 +56,7 @@ locationObj.enabledLocationInBackground(false)
 }
 }
 ```
-![InnoGetLocation Icon](Resources/InnoHome.png "InnoHome Icon")
+![InnoHome Icon](Resources/InnoHome.png "InnoHome Icon")
 ### User moves a certain distance (granular based)
 #### Description
 Based on the `distanceFilter` value location will get updated.
@@ -137,7 +137,7 @@ marker.snippet = address.administrativeArea
 }
 }
 ```
-![InnoGetLocation Icon](Resources/InnoGoogleLocation.png "InnoGoogleLocation Icon")
+![InnoGoogleLocation Icon](Resources/InnoGoogleLocation.png "InnoGoogleLocation Icon")
 ### Support for AppleMaps
 #### Description
 It shows the user location in apple map. By using the `MapKit` framework will display the location in map.
@@ -160,4 +160,4 @@ self.mapView.setRegion(region, animated: true)
 annotationPin.coordinate = userLocation.coordinate
 self.mapView.addAnnotation(annotationPin)
 ```
-![InnoGetLocation Icon](Resources/InnoAppleLocation.png "InnoAppleLocation Icon")
+![InnoAppleLocation Icon](Resources/InnoAppleLocation.png "InnoAppleLocation Icon")
