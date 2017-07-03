@@ -179,4 +179,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         }
     }
+    @IBAction func reverseGeocodingBtnAction(_ sender: Any) {
+    }
+    @IBAction func fwdGeocodingBtnAction(_ sender: Any) {
+        if let forwardGeocodingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
+            "ForwardGeocodingViewController") as? ForwardGeocodingViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(forwardGeocodingVC, animated: true)
+            }
+        }
+    }
 }

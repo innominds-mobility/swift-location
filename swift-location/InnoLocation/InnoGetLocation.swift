@@ -15,6 +15,7 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
     /// CLLocationManager object for getting the location
     var locationManager: CLLocationManager!
     var oldLocation = CLLocation()
+    var geocoder = CLGeocoder()
     /// This method declares location delegate,location options and starts the update the location.
     public func getLocation() {
         if CLLocationManager.locationServicesEnabled() {
@@ -111,5 +112,30 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
             }
         })
         // manager.stopUpdatingLocation()
+    }
+    public func forwardGeocoding(address: String, completion: @escaping (_ value: String) -> Void) {
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            // Process Response
+            if let error = error {
+                print("Unable to Forward Geocode Address (\(error))")
+                completion("Unable to Find Location for Address")
+
+            } else {
+                var location: CLLocation?
+
+                if let placemarks = placemarks, placemarks.count > 0 {
+                    location = placemarks.first?.location
+                }
+
+                if let location = location {
+                    let coordinate = location.coordinate
+                    completion("\(coordinate.latitude), \(coordinate.longitude)")
+
+                } else {
+                    completion("No Matching Location Found")
+                }
+            }
+        }
+
     }
 }
