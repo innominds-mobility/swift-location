@@ -49,11 +49,11 @@ To enable location services in background into your project. Go to targets in `c
 Pass the location should enable in background value to `public func enabledLocationInBackground(_ isEnable: Bool)` menthod in `InnoLocation` class
 ```swift
 func enabledValueChanged(_ sender: UISwitch) {
-if sender.isOn {
-locationObj.enabledLocationInBackground(true)
-} else {
-locationObj.enabledLocationInBackground(false)
-}
+  if sender.isOn {
+    locationObj.enabledLocationInBackground(true)
+  } else {
+    locationObj.enabledLocationInBackground(false)
+ }
 }
 ```
 ![InnoHome Icon](Resources/InnoHome.png "InnoHome Icon")
@@ -128,13 +128,13 @@ let geocoder = GMSGeocoder()
 geocoder.reverseGeocodeCoordinate(
 CLLocationCoordinate2DMake(coordinations.latitude, coordinations.longitude)) 
 { response, error in
-if error == nil {
-if let address = response?.firstResult() {
-print("Address from google  \(address)")
-marker.title = address.locality
-marker.snippet = address.administrativeArea
-}
-}
+   if error == nil {
+     if let address = response?.firstResult() {
+       print("Address from google  \(address)")
+       marker.title = address.locality
+       marker.snippet = address.administrativeArea
+     }
+   }
 }
 ```
 ![InnoGoogleLocation Icon](Resources/InnoGoogleLocation.png "InnoGoogleLocation Icon")
