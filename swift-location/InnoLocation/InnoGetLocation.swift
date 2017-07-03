@@ -34,13 +34,17 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
 //        }
 //    }
     public func setDistanceFilter(_ value: Double) {
-        locationManager.distanceFilter = CLLocationDistance(value)
+        if self.locationManager != nil {
+            locationManager.distanceFilter = CLLocationDistance(value)
+        }
     }
     public func enabledLocationInBackground(_ isEnable: Bool) {
-        if isEnable {
-            locationManager.startUpdatingLocation()
-        } else {
-            locationManager.stopUpdatingLocation()
+        if self.locationManager != nil {
+            if isEnable {
+                locationManager.startUpdatingLocation()
+            } else {
+                locationManager.stopUpdatingLocation()
+            }
         }
     }
     public func accuracyChanged(_ index: Int) {
@@ -51,7 +55,9 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
             kCLLocationAccuracyHundredMeters,
             kCLLocationAccuracyKilometer,
             kCLLocationAccuracyThreeKilometers]
+        if self.locationManager != nil {
             locationManager.desiredAccuracy = accuracyValues[index]
+        }
     }
     ///This method will be called each time when a user change his location access preference.
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

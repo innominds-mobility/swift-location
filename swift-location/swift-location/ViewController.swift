@@ -36,6 +36,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         locationTabelView.register(UITableViewCell.self, forCellReuseIdentifier: cellReUseIdentifier)
+        _ = Timer.scheduledTimer(timeInterval: 10, target: self,
+                                 selector: #selector(self.callLocation), userInfo: nil, repeats: true)
+
+    }
+    func callLocation() {
         locationObj.getLocation()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +116,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn
-                  range: NSRange, replacementString string: String) -> Bool {
+                   range: NSRange, replacementString string: String) -> Bool {
         let aSet = NSCharacterSet(charactersIn:"0123456789.").inverted
         let compSepByCharInSet = string.components(separatedBy: aSet)
         let numberFiltered = compSepByCharInSet.joined(separator: "")
