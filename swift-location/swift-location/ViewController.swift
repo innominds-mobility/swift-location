@@ -36,12 +36,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         locationTabelView.register(UITableViewCell.self, forCellReuseIdentifier: cellReUseIdentifier)
-        _ = Timer.scheduledTimer(timeInterval: 10, target: self,
-                                 selector: #selector(self.callLocation), userInfo: nil, repeats: true)
-
-    }
-    func callLocation() {
+       // _ = Timer.scheduledTimer(timeInterval: 10, target: self,
+                                // selector: #selector(self.callLocation), userInfo: nil, repeats: true)
         locationObj.getLocation()
+
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isTranslucent = false
@@ -115,6 +113,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = self.locationDetails[indexPath.row] as? String
         return cell
     }
+    // MARK: - TextField delegate methods
     func textField(_ textField: UITextField, shouldChangeCharactersIn
                    range: NSRange, replacementString string: String) -> Bool {
         let aSet = NSCharacterSet(charactersIn:"0123456789.").inverted
@@ -130,6 +129,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    /// Passing the user location
+    /// to GoogleLocationViewController
+    ///
     @IBAction func googleLocationBtnAction(_ sender: Any) {
         if let googleLocationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "GoogleLocationViewController") as? GoogleLocationViewController {
@@ -139,6 +141,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    /// Passing the user location
+    /// to AppleLocationViewController
+    ///
     @IBAction func appleLocationBtnAction(_ sender: Any) {
         if let appleLocationVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "AppleLocationViewController") as? AppleLocationViewController {
@@ -148,6 +153,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    /// Selected value is sending
+    /// to enable or disable
+    /// background location service
     @IBAction func enabledValueChanged(_ sender: UISwitch) {
         if sender.isOn {
             locationObj.enabledLocationInBackground(true)
@@ -156,9 +164,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         }
     }
+    /// Selected segmentcontrol value is sending
+    /// based on accuracy value location work
+    ///
     @IBAction func accuracyChanged(_ sender: UISegmentedControl) {
         locationObj.accuracyChanged(sender.selectedSegmentIndex)
     }
+    /// Sending the distance filter vaue
+    ///
+    ///
     @IBAction func distanceFilterBtnAction(_ sender: Any) {
         if !(self.filterValueTF.text?.isEmpty)! {
             locationObj.setDistanceFilter(Double(self.filterValueTF.text!)!)

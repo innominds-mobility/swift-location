@@ -33,11 +33,17 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
 //            locationManager.requestWhenInUseAuthorization()
 //        }
 //    }
+    /// Setting distanceFilter value to locationmanager
+    ///
+    ///
     public func setDistanceFilter(_ value: Double) {
         if self.locationManager != nil {
             locationManager.distanceFilter = CLLocationDistance(value)
         }
     }
+    /// Setting location should run
+    /// background or not to value to locationmanager
+    ///
     public func enabledLocationInBackground(_ isEnable: Bool) {
         if self.locationManager != nil {
             if isEnable {
@@ -47,6 +53,9 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
             }
         }
     }
+    /// Setting desiredAccuracy value to locationmanager
+    ///
+    ///
     public func accuracyChanged(_ index: Int) {
         let accuracyValues = [
             kCLLocationAccuracyBestForNavigation,
@@ -74,11 +83,10 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
         /// User location details
 
         let userLocation: CLLocation = locations[0] as CLLocation
-        /// It holds latitude,longitude values
         let distance = Double(userLocation.distance(from: oldLocation))
         oldLocation = userLocation
         print("distance  \(distance)")
-
+        /// It holds latitude,longitude values
         let coordinations = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
                                                    longitude: userLocation.coordinate.longitude)
         /// Get the location details

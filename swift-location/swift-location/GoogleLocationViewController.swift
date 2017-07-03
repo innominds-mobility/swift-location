@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 import GooglePlaces
-
+/// The purpose of this view controller is to provide a user interface for displaying user location in Google map.
+/// The `GoogleLocationViewController` class is a subclass of the `UIViewController`.
 class GoogleLocationViewController: UIViewController {
     var userLocation = CLLocation()
     override func viewDidLoad() {
@@ -18,10 +19,12 @@ class GoogleLocationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = "Google Map"
+        /// It holds latitude,longitude values
         let coordinations = CLLocationCoordinate2D(latitude: (self.userLocation.coordinate.latitude),
                                                    longitude: (self.userLocation.coordinate.longitude))
         let camera = GMSCameraPosition.camera(withLatitude: coordinations.latitude,
                                               longitude:coordinations.longitude, zoom: 10)
+        /// Declaration of GMSMapView
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
         //mapView.delegate = self
@@ -29,6 +32,7 @@ class GoogleLocationViewController: UIViewController {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(coordinations.latitude, coordinations.longitude)
         marker.map = mapView
+        /// Reverse geocoding by using latitude and longitude values to display location
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(
         CLLocationCoordinate2DMake(coordinations.latitude, coordinations.longitude)) { response, error in

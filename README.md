@@ -37,7 +37,7 @@ func receivingLocationNotification(notification: Notification)
 #### Description
 Based on the selected accuracy will get the user location.
 #### Usage
-Pass the accuracy value to ` public func accuracyChanged(_ index: Int)` menthod in `InnoLocation` class
+Pass the accuracy value to ` public func accuracyChanged(_ index: Int)` method in `InnoLocation` class
 ```swift
 locationObj.accuracyChanged(sender.selectedSegmentIndex)
 ```
