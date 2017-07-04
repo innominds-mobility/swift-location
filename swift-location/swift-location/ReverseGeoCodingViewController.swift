@@ -8,14 +8,22 @@
 
 import UIKit
 import InnoLocation
-
+/// The purpose of this view controller is to provide a user interface for displaying user location.
+/// There's a matching scene in the *Main.storyboard* file,
+/// and in that scene there is textfields,button and label for showing location details.
+/// Go to Interface Builder for details.
+/// The `ReverseGeoCodingViewController` class is a subclass of the `UIViewController`.
 class ReverseGeoCodingViewController: UIViewController {
     /// Object for InnoGetLocation class
     var locationObj = InnoGetLocation()
+    // textfield for longitude value
     @IBOutlet weak var longitudeTextfield: UITextField!
+    // textfield for latitude name
     @IBOutlet weak var latitudeTextField: UITextField!
+    // button for perform action to get values
     @IBOutlet var reverseGeocodeButton: UIButton!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    // label for displaying address value
     @IBOutlet var locationLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +32,13 @@ class ReverseGeoCodingViewController: UIViewController {
         self.title = "Reverse Geocoding"
 
     }
-
+    /// Pass the coordinates to reverse gecoding
+    /// and returns the result address value
+    /// displays the value in label
     @IBAction func reverseGeocodeBtnAction(_ sender: Any) {
+        self.locationLabel.text = ""
         guard let latitudeValue = latitudeTextField.text, let latitude = Double(latitudeValue) else { return }
         guard let longitudeValue = longitudeTextfield.text, let longitude = Double(longitudeValue) else { return }
-        self.locationLabel.text = ""
         reverseGeocodeButton.isHidden = true
         activityIndicatorView.startAnimating()
         locationObj.reverseGeocoding(lat: latitude, long: longitude) { (resultAddress) in

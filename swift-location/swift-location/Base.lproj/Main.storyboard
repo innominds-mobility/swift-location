@@ -304,7 +304,7 @@
                                     <constraint firstAttribute="width" constant="126" id="JIf-oM-dQj"/>
                                     <constraint firstAttribute="height" constant="30" id="qAJ-F8-DN4"/>
                                 </constraints>
-                                <state key="normal" title="Fetch Coordinates"/>
+                                <state key="normal" title="Get Coordinates"/>
                                 <connections>
                                     <action selector="geoCodingBtnAction:" destination="UBY-01-WeK" eventType="touchUpInside" id="wLl-HR-fTQ"/>
                                 </connections>
@@ -438,7 +438,7 @@
                                     <constraint firstAttribute="width" constant="126" id="pFy-q4-mAS"/>
                                     <constraint firstAttribute="height" constant="30" id="t1V-6T-9lZ"/>
                                 </constraints>
-                                <state key="normal" title="Fetch Location"/>
+                                <state key="normal" title="Get Location"/>
                                 <connections>
                                     <action selector="reverseGeocodeBtnAction:" destination="C8j-Zn-u9X" eventType="touchUpInside" id="JQ3-Jl-fdj"/>
                                 </connections>
@@ -478,7 +478,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lLi-RQ-ljy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PiB-l1-cYe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PiB-l1-cYe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -8,15 +8,24 @@
 
 import UIKit
 import InnoLocation
-
+/// The purpose of this view controller is to provide a user interface for displaying user location.
+/// There's a matching scene in the *Main.storyboard* file,
+/// and in that scene there is textfields,button and label for showing location details.
+/// Go to Interface Builder for details.
+/// The `ReverseGeoCodingViewController` class is a subclass of the `UIViewController`.
 class ForwardGeocodingViewController: UIViewController {
     /// Object for InnoGetLocation class
     var locationObj = InnoGetLocation()
+    // textfield for country name
     @IBOutlet var countryTextField: UITextField!
+    // textfield for street name
     @IBOutlet var streetTextField: UITextField!
+    // textfield for city name
     @IBOutlet var cityTextField: UITextField!
+    // button for perform action to get values
     @IBOutlet var geocodeButton: UIButton!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    // label for displaying latitude and longitude values
     @IBOutlet var locationLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +39,9 @@ class ForwardGeocodingViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    /// Pass the address to forward gecoding
+    /// and returns the result coordinates value
+    /// displays the value in label
     @IBAction func geoCodingBtnAction(_ sender: Any) {
         guard let countryName = countryTextField.text else { return }
         guard let streetName = streetTextField.text else { return }

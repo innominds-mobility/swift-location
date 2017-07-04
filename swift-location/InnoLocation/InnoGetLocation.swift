@@ -113,6 +113,9 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
         })
         // manager.stopUpdatingLocation()
     }
+    /// Forward Geocoding
+    /// from address finds the
+    /// location latitude and longitude values
     public func forwardGeocoding(address: String, completion: @escaping (_ value: String) -> Void) {
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             // Process Response
@@ -133,6 +136,9 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
         }
 
     }
+    /// Reverse Geocoding
+    /// from latitude and longitude values finds the
+    /// location full details
     public func reverseGeocoding(lat: Double, long: Double, completion: @escaping (_ value: String) -> Void) {
         let location = CLLocation(latitude: lat, longitude: long)
         // Geocode Location

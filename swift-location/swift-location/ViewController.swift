@@ -170,7 +170,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func accuracyChanged(_ sender: UISegmentedControl) {
         locationObj.accuracyChanged(sender.selectedSegmentIndex)
     }
-    /// Sending the distance filter vaue
+    /// Sending the distance filter value
     ///
     ///
     @IBAction func distanceFilterBtnAction(_ sender: Any) {
@@ -179,6 +179,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         }
     }
+    /// Pushing to ReverseGeoCodingViewController
+    ///
+    ///
     @IBAction func reverseGeocodingBtnAction(_ sender: Any) {
         if let reverseGeocodingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "ReverseGeoCodingViewController") as? ReverseGeoCodingViewController {
@@ -187,6 +190,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    /// Pushing to ForwardGeocodingViewController
+    ///
+    ///
     @IBAction func fwdGeocodingBtnAction(_ sender: Any) {
         if let forwardGeocodingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
             "ForwardGeocodingViewController") as? ForwardGeocodingViewController {
