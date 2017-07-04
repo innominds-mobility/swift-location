@@ -286,7 +286,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cw1-11-r50">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Street" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cw1-11-r50">
                                 <rect key="frame" x="16" y="187" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="M6D-XQ-1k5"/>
@@ -316,7 +316,7 @@
                                     <constraint firstAttribute="width" constant="20" id="s2m-qe-Xjm"/>
                                 </constraints>
                             </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oY4-Ag-nFk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oY4-Ag-nFk">
                                 <rect key="frame" x="16" y="149" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uHY-u2-W1w"/>
@@ -328,7 +328,7 @@
                                     <outlet property="delegate" destination="UBY-01-WeK" id="bct-ks-Lxk"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRb-D2-E9O">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRb-D2-E9O">
                                 <rect key="frame" x="16" y="111" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="boN-xV-dXn"/>
@@ -340,7 +340,7 @@
                                     <outlet property="delegate" destination="UBY-01-WeK" id="5kN-eW-84G"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-, -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-k8-0BA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxo-k8-0BA">
                                 <rect key="frame" x="16" y="263" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="PdR-st-tj5"/>
@@ -382,6 +382,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioj-D3-CGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="859"/>
+        </scene>
+        <!--Reverse Geo Coding View Controller-->
+        <scene sceneID="0Hj-Gi-U3y">
+            <objects>
+                <viewController storyboardIdentifier="ReverseGeoCodingViewController" id="C8j-Zn-u9X" customClass="ReverseGeoCodingViewController" customModule="swift_location" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R6y-RM-2kH"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Qh-sz-ldm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gtJ-zF-4fn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="latitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghg-h2-cNk">
+                                <rect key="frame" x="16" y="114" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="O7a-A7-eYx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="C8j-Zn-u9X" id="9q0-zq-V7y"/>
+                                </connections>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PZc-3C-ymF">
+                                <rect key="frame" x="178" y="202" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="E62-r4-aq4"/>
+                                    <constraint firstAttribute="height" constant="20" id="avp-ww-X2p"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIM-KZ-Bk7">
+                                <rect key="frame" x="16" y="235" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="longitude" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dIL-nA-XGR">
+                                <rect key="frame" x="16" y="152" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yRn-cZ-jQh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="C8j-Zn-u9X" id="ekq-nf-aA4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2at-aB-KJi">
+                                <rect key="frame" x="125" y="197" width="126" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="pFy-q4-mAS"/>
+                                    <constraint firstAttribute="height" constant="30" id="t1V-6T-9lZ"/>
+                                </constraints>
+                                <state key="normal" title="Fetch Location"/>
+                                <connections>
+                                    <action selector="reverseGeocodeBtnAction:" destination="C8j-Zn-u9X" eventType="touchUpInside" id="JQ3-Jl-fdj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fIM-KZ-Bk7" firstAttribute="trailing" secondItem="gtJ-zF-4fn" secondAttribute="trailingMargin" id="0Je-q5-6eM"/>
+                            <constraint firstItem="dIL-nA-XGR" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="0TI-j6-CtE"/>
+                            <constraint firstItem="ghg-h2-cNk" firstAttribute="trailing" secondItem="gtJ-zF-4fn" secondAttribute="trailingMargin" id="532-dK-Rzy"/>
+                            <constraint firstItem="fIM-KZ-Bk7" firstAttribute="top" secondItem="2at-aB-KJi" secondAttribute="bottom" constant="8" id="6gx-mR-rpV"/>
+                            <constraint firstItem="ghg-h2-cNk" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="GXP-bw-Id4"/>
+                            <constraint firstItem="dIL-nA-XGR" firstAttribute="trailing" secondItem="gtJ-zF-4fn" secondAttribute="trailingMargin" id="W9t-f0-PSD"/>
+                            <constraint firstItem="PZc-3C-ymF" firstAttribute="top" secondItem="dIL-nA-XGR" secondAttribute="bottom" constant="20" id="gg8-vF-fFS"/>
+                            <constraint firstItem="2at-aB-KJi" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="gl0-C8-ns8"/>
+                            <constraint firstItem="PZc-3C-ymF" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="kUa-RB-oxo"/>
+                            <constraint firstItem="fIM-KZ-Bk7" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="kgd-aY-TIX"/>
+                            <constraint firstItem="ghg-h2-cNk" firstAttribute="top" secondItem="R6y-RM-2kH" secondAttribute="bottom" constant="94" id="lkT-bF-6oJ"/>
+                            <constraint firstItem="2at-aB-KJi" firstAttribute="top" secondItem="dIL-nA-XGR" secondAttribute="bottom" constant="15" id="xnF-u2-cSc"/>
+                            <constraint firstItem="dIL-nA-XGR" firstAttribute="top" secondItem="ghg-h2-cNk" secondAttribute="bottom" constant="8" id="zzm-J6-9Gx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="PZc-3C-ymF" id="Lqz-9L-OtI"/>
+                        <outlet property="latitudeTextField" destination="ghg-h2-cNk" id="0vQ-iK-sP6"/>
+                        <outlet property="locationLabel" destination="fIM-KZ-Bk7" id="bsr-zP-hr7"/>
+                        <outlet property="longitudeTextfield" destination="dIL-nA-XGR" id="hPf-sN-pAU"/>
+                        <outlet property="reverseGeocodeButton" destination="2at-aB-KJi" id="m74-wg-Rwz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FbR-Fl-U3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3516" y="858.62068965517244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O1G-Yt-OKE">

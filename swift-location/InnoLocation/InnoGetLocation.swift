@@ -116,26 +116,68 @@ public final class InnoGetLocation: NSObject, CLLocationManagerDelegate {
     public func forwardGeocoding(address: String, completion: @escaping (_ value: String) -> Void) {
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             // Process Response
-            if let error = error {
-                print("Unable to Forward Geocode Address (\(error))")
-                completion("Unable to Find Location for Address")
-
-            } else {
+            if error == nil {
                 var location: CLLocation?
-
                 if let placemarks = placemarks, placemarks.count > 0 {
                     location = placemarks.first?.location
                 }
-
                 if let location = location {
                     let coordinate = location.coordinate
                     completion("\(coordinate.latitude), \(coordinate.longitude)")
-
                 } else {
                     completion("No Matching Location Found")
                 }
+            } else {
+                completion("Unable to Find Location for Address")
             }
         }
 
     }
+    public func reverseGeocoding(lat: Double, long: Double, completion: @escaping (_ value: String) -> Void) {
+        let location = CLLocation(latitude: lat, longitude: long)
+        // Geocode Location
+        geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            if error == nil {
+                /// Place details
+                var placeMark: CLPlacemark?
+                placeMark = placemarks?[0]
+                if placeMark?.addressDictionary != nil {
+                    let placeMark = placeMark?.addressDictionary as NSDictionary?
+                    /// Location name
+                    var result = String()
+
+                    if let locationName = placeMark?["Name"] as? NSString {
+                        result += "\(locationName)"
+                    }
+//                    /// Street address
+//                    if let street = placeMark!["Thoroughfare"] as? NSString {
+//                        result += ",\(street)"
+//                    }
+                    /// City name
+                    if let city = placeMark!["City"] as? NSString {
+                        result += ",\(city)"
+                    }
+                    /// State name
+                    if let state = placeMark!["State"] as? NSString {
+                        result += ",\(state)"
+                    }
+                    /// Country name
+                    if let country = placeMark!["Country"] as? NSString {
+                        result += ",\(country)"
+                    }
+                    /// Zip code
+                    if let zip = placeMark!["ZIP"] as? NSString {
+                        result += ",\(zip)"
+                    }
+                    completion(result)
+
+                } else {
+                    completion("No Matching Addresses Found")
+                }
+            } else {
+                completion("Unable to Find Location for Address")
+            }
+        })
+    }
+
 }

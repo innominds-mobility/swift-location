@@ -31,11 +31,11 @@ class ForwardGeocodingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func geoCodingBtnAction(_ sender: Any) {
-        guard let country = countryTextField.text else { return }
-        guard let street = streetTextField.text else { return }
-        guard let city = cityTextField.text else { return }
+        guard let countryName = countryTextField.text else { return }
+        guard let streetName = streetTextField.text else { return }
+        guard let cityName = cityTextField.text else { return }
         // Create Address String
-        let addressLocation = "\(country), \(city), \(street)"
+        let addressLocation = "\(countryName), \(streetName), \(cityName)"
         geocodeButton.isHidden = true
         activityIndicatorView.startAnimating()
         locationObj.forwardGeocoding(address: addressLocation) { (locationValue) in
