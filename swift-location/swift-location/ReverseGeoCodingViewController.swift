@@ -25,6 +25,11 @@ class ReverseGeoCodingViewController: UIViewController {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     // label for displaying address value
     @IBOutlet var locationLabel: UILabel!
+    var locationIqObj = InnoLocationIq()
+    @IBOutlet weak var locationIqButton: UIButton!
+    @IBOutlet weak var locationIqActivityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var locationIqLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +50,23 @@ class ReverseGeoCodingViewController: UIViewController {
             self.reverseGeocodeButton.isHidden = false
             self.activityIndicatorView.stopAnimating()
             self.locationLabel.text = resultAddress
+        }
+    }
+    @IBAction func locationIqBtnAction(_ sender: Any) {
+        self.locationIqLabel.text = ""
+        guard let latitudeValue = latitudeTextField.text, let latitude = Double(latitudeValue) else { return }
+        guard let longitudeValue = longitudeTextfield.text, let longitude = Double(longitudeValue) else { return }
+        locationIqButton.isHidden = true
+        locationIqActivityIndicatorView.startAnimating()
+        locationIqObj.locationIqReverseGeocoding(lat: latitude, long: longitude) { (resultValue, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.locationIqButton.isHidden = false
+                    self.locationIqActivityIndicatorView.stopAnimating()
+                    self.locationIqLabel.text = (resultValue as AnyObject).value(forKey: "display_name") as? String
+                }
+
+            }
         }
     }
     override func didReceiveMemoryWarning() {

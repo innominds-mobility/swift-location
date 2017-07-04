@@ -20,6 +20,7 @@
 		AD51211C1EF283A400B0064B /* InnoGetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD51211B1EF283A400B0064B /* InnoGetLocation.swift */; };
 		AD866AC51F0A54F500BDDC49 /* ForwardGeocodingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD866AC41F0A54F500BDDC49 /* ForwardGeocodingViewController.swift */; };
 		AD866AC71F0A609600BDDC49 /* ReverseGeoCodingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD866AC61F0A609600BDDC49 /* ReverseGeoCodingViewController.swift */; };
+		AD866AC91F0B792700BDDC49 /* InnoLocationIq.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD866AC81F0B792700BDDC49 /* InnoLocationIq.swift */; };
 		ADEF938B1EFCEF23001AFA0E /* GoogleLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF938A1EFCEF23001AFA0E /* GoogleLocationViewController.swift */; };
 		B28E431278529B4C71561D29 /* Pods_InnoLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6605D35F140719FB01391A20 /* Pods_InnoLocation.framework */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		AD51211B1EF283A400B0064B /* InnoGetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnoGetLocation.swift; sourceTree = "<group>"; };
 		AD866AC41F0A54F500BDDC49 /* ForwardGeocodingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardGeocodingViewController.swift; sourceTree = "<group>"; };
 		AD866AC61F0A609600BDDC49 /* ReverseGeoCodingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseGeoCodingViewController.swift; sourceTree = "<group>"; };
+		AD866AC81F0B792700BDDC49 /* InnoLocationIq.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnoLocationIq.swift; sourceTree = "<group>"; };
 		ADEF938A1EFCEF23001AFA0E /* GoogleLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleLocationViewController.swift; sourceTree = "<group>"; };
 		B2CD71EEAC417F163765A985 /* Pods_swift_location.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swift_location.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F30CE0E6E6B1F96FE1DBC763 /* Pods-InnoLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InnoLocation/Pods-InnoLocation.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				AD51210E1EF2641500B0064B /* InnoLocation.h */,
 				AD51210F1EF2641500B0064B /* Info.plist */,
 				AD51211B1EF283A400B0064B /* InnoGetLocation.swift */,
+				AD866AC81F0B792700BDDC49 /* InnoLocationIq.swift */,
 			);
 			path = InnoLocation;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD866AC91F0B792700BDDC49 /* InnoLocationIq.swift in Sources */,
 				AD51211C1EF283A400B0064B /* InnoGetLocation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

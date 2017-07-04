@@ -349,11 +349,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0lb-Ve-hLK">
+                                <rect key="frame" x="0.0" y="339" width="375" height="328"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UBY-01-WeK" id="5IJ-HK-HIp"/>
+                                    <outlet property="delegate" destination="UBY-01-WeK" id="NRc-yO-dI4"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ACs-jd-rEg">
+                                <rect key="frame" x="178" y="309" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="KAi-oP-n8l"/>
+                                    <constraint firstAttribute="width" constant="20" id="qXx-yF-SDL"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n59-qu-aU2">
+                                <rect key="frame" x="88" y="304" width="199" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="W4W-7X-Nlq"/>
+                                    <constraint firstAttribute="height" constant="30" id="YXZ-En-5P0"/>
+                                </constraints>
+                                <state key="normal" title="Get LocationIq Coordinates"/>
+                                <connections>
+                                    <action selector="locationIqGeocodeBtnAction:" destination="UBY-01-WeK" eventType="touchUpInside" id="T07-Sn-A3b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ACs-jd-rEg" firstAttribute="centerX" secondItem="5Lq-tM-7rP" secondAttribute="centerX" id="4qy-hl-EEA"/>
+                            <constraint firstItem="0lb-Ve-hLK" firstAttribute="leading" secondItem="5Lq-tM-7rP" secondAttribute="leading" id="4vP-cM-lhi"/>
                             <constraint firstItem="caF-ym-J7b" firstAttribute="centerX" secondItem="5Lq-tM-7rP" secondAttribute="centerX" id="9b1-sr-MJU"/>
+                            <constraint firstAttribute="trailing" secondItem="0lb-Ve-hLK" secondAttribute="trailing" id="CMs-9i-Vir"/>
+                            <constraint firstItem="ACs-jd-rEg" firstAttribute="top" secondItem="Cxo-k8-0BA" secondAttribute="bottom" constant="25" id="Hpg-rm-LzV"/>
                             <constraint firstItem="cw1-11-r50" firstAttribute="top" secondItem="oY4-Ag-nFk" secondAttribute="bottom" constant="8" id="JXK-1t-xZy"/>
+                            <constraint firstItem="n59-qu-aU2" firstAttribute="top" secondItem="Cxo-k8-0BA" secondAttribute="bottom" constant="20" id="Jmu-nU-E5i"/>
                             <constraint firstItem="bRb-D2-E9O" firstAttribute="top" secondItem="2Ij-8n-7HB" secondAttribute="bottom" constant="91" id="NTg-X8-snh"/>
                             <constraint firstItem="YbK-ta-NID" firstAttribute="centerX" secondItem="5Lq-tM-7rP" secondAttribute="centerX" id="QBQ-20-pTq"/>
                             <constraint firstItem="bRb-D2-E9O" firstAttribute="trailing" secondItem="5Lq-tM-7rP" secondAttribute="trailingMargin" id="ZC9-wX-56F"/>
@@ -363,11 +394,14 @@
                             <constraint firstItem="bRb-D2-E9O" firstAttribute="leading" secondItem="5Lq-tM-7rP" secondAttribute="leadingMargin" id="b5Q-Df-f6i"/>
                             <constraint firstItem="Cxo-k8-0BA" firstAttribute="trailing" secondItem="5Lq-tM-7rP" secondAttribute="trailingMargin" id="eIV-nS-vxd"/>
                             <constraint firstItem="Cxo-k8-0BA" firstAttribute="top" secondItem="YbK-ta-NID" secondAttribute="bottom" constant="8" id="ehw-AH-x4b"/>
+                            <constraint firstItem="n59-qu-aU2" firstAttribute="centerX" secondItem="5Lq-tM-7rP" secondAttribute="centerX" id="fo5-Vo-kGj"/>
                             <constraint firstItem="caF-ym-J7b" firstAttribute="top" secondItem="cw1-11-r50" secondAttribute="bottom" constant="13" id="jsz-vv-Bqo"/>
                             <constraint firstItem="cw1-11-r50" firstAttribute="leading" secondItem="5Lq-tM-7rP" secondAttribute="leadingMargin" id="o06-qW-ty8"/>
+                            <constraint firstItem="0lb-Ve-hLK" firstAttribute="top" secondItem="n59-qu-aU2" secondAttribute="bottom" constant="5" id="qfS-UE-l49"/>
                             <constraint firstItem="YbK-ta-NID" firstAttribute="top" secondItem="cw1-11-r50" secondAttribute="bottom" constant="8" id="tQ3-3i-hPt"/>
                             <constraint firstItem="cw1-11-r50" firstAttribute="trailing" secondItem="5Lq-tM-7rP" secondAttribute="trailingMargin" id="vgc-C7-o5j"/>
                             <constraint firstItem="Cxo-k8-0BA" firstAttribute="leading" secondItem="5Lq-tM-7rP" secondAttribute="leadingMargin" id="xIw-hc-WVz"/>
+                            <constraint firstItem="Z60-T7-vdz" firstAttribute="top" secondItem="0lb-Ve-hLK" secondAttribute="bottom" id="z6J-IB-bdf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -375,13 +409,16 @@
                         <outlet property="cityTextField" destination="oY4-Ag-nFk" id="8Zb-vn-bjn"/>
                         <outlet property="countryTextField" destination="bRb-D2-E9O" id="e1I-lf-HYQ"/>
                         <outlet property="geocodeButton" destination="YbK-ta-NID" id="tpR-TO-NFQ"/>
+                        <outlet property="locationIqActivityIndicatorView" destination="ACs-jd-rEg" id="rcW-ju-i6o"/>
+                        <outlet property="locationIqGeocodeBtn" destination="n59-qu-aU2" id="cgt-Bo-PSF"/>
                         <outlet property="locationLabel" destination="Cxo-k8-0BA" id="ObN-1X-oUM"/>
+                        <outlet property="locationTableView" destination="0lb-Ve-hLK" id="fil-wQ-N6g"/>
                         <outlet property="streetTextField" destination="cw1-11-r50" id="WUo-gc-gIu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioj-D3-CGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="859"/>
+            <point key="canvasLocation" x="2840.8000000000002" y="858.62068965517244"/>
         </scene>
         <!--Reverse Geo Coding View Controller-->
         <scene sceneID="0Hj-Gi-U3y">
@@ -443,6 +480,30 @@
                                     <action selector="reverseGeocodeBtnAction:" destination="C8j-Zn-u9X" eventType="touchUpInside" id="JQ3-Jl-fdj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lht-dc-ayk">
+                                <rect key="frame" x="16" y="299" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bjb-Jv-2NU">
+                                <rect key="frame" x="69.5" y="261" width="236" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5JH-fJ-Xzn"/>
+                                    <constraint firstAttribute="width" constant="236" id="rwf-rM-pM5"/>
+                                </constraints>
+                                <state key="normal" title="Get LocationIq"/>
+                                <connections>
+                                    <action selector="locationIqBtnAction:" destination="C8j-Zn-u9X" eventType="touchUpInside" id="OzO-uP-N8Q"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="07q-WN-7GY">
+                                <rect key="frame" x="178" y="266" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Q4e-j6-Kdk"/>
+                                    <constraint firstAttribute="height" constant="20" id="dyw-Cl-5YH"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -450,10 +511,17 @@
                             <constraint firstItem="dIL-nA-XGR" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="0TI-j6-CtE"/>
                             <constraint firstItem="ghg-h2-cNk" firstAttribute="trailing" secondItem="gtJ-zF-4fn" secondAttribute="trailingMargin" id="532-dK-Rzy"/>
                             <constraint firstItem="fIM-KZ-Bk7" firstAttribute="top" secondItem="2at-aB-KJi" secondAttribute="bottom" constant="8" id="6gx-mR-rpV"/>
+                            <constraint firstItem="07q-WN-7GY" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="88l-5d-uvO"/>
+                            <constraint firstItem="lht-dc-ayk" firstAttribute="top" secondItem="Bjb-Jv-2NU" secondAttribute="bottom" constant="8" id="8fi-s5-9jv"/>
                             <constraint firstItem="ghg-h2-cNk" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="GXP-bw-Id4"/>
+                            <constraint firstItem="Bjb-Jv-2NU" firstAttribute="top" secondItem="fIM-KZ-Bk7" secondAttribute="bottom" constant="8" id="Ho5-yu-l28"/>
+                            <constraint firstItem="lht-dc-ayk" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="RnN-41-D0c"/>
                             <constraint firstItem="dIL-nA-XGR" firstAttribute="trailing" secondItem="gtJ-zF-4fn" secondAttribute="trailingMargin" id="W9t-f0-PSD"/>
+                            <constraint firstItem="Bjb-Jv-2NU" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="XH5-ss-zOO"/>
                             <constraint firstItem="PZc-3C-ymF" firstAttribute="top" secondItem="dIL-nA-XGR" secondAttribute="bottom" constant="20" id="gg8-vF-fFS"/>
                             <constraint firstItem="2at-aB-KJi" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="gl0-C8-ns8"/>
+                            <constraint firstItem="lht-dc-ayk" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="h0o-c9-QdS"/>
+                            <constraint firstItem="07q-WN-7GY" firstAttribute="top" secondItem="fIM-KZ-Bk7" secondAttribute="bottom" constant="13" id="jGO-5j-L8t"/>
                             <constraint firstItem="PZc-3C-ymF" firstAttribute="centerX" secondItem="gtJ-zF-4fn" secondAttribute="centerX" id="kUa-RB-oxo"/>
                             <constraint firstItem="fIM-KZ-Bk7" firstAttribute="leading" secondItem="gtJ-zF-4fn" secondAttribute="leadingMargin" id="kgd-aY-TIX"/>
                             <constraint firstItem="ghg-h2-cNk" firstAttribute="top" secondItem="R6y-RM-2kH" secondAttribute="bottom" constant="94" id="lkT-bF-6oJ"/>
@@ -464,6 +532,9 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="PZc-3C-ymF" id="Lqz-9L-OtI"/>
                         <outlet property="latitudeTextField" destination="ghg-h2-cNk" id="0vQ-iK-sP6"/>
+                        <outlet property="locationIqActivityIndicatorView" destination="07q-WN-7GY" id="6jK-Wd-SyO"/>
+                        <outlet property="locationIqButton" destination="Bjb-Jv-2NU" id="cP9-fR-hoP"/>
+                        <outlet property="locationIqLabel" destination="lht-dc-ayk" id="Bzm-ue-vEk"/>
                         <outlet property="locationLabel" destination="fIM-KZ-Bk7" id="bsr-zP-hr7"/>
                         <outlet property="longitudeTextfield" destination="dIL-nA-XGR" id="hPf-sN-pAU"/>
                         <outlet property="reverseGeocodeButton" destination="2at-aB-KJi" id="m74-wg-Rwz"/>

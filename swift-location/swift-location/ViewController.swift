@@ -38,8 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         locationTabelView.register(UITableViewCell.self, forCellReuseIdentifier: cellReUseIdentifier)
        // _ = Timer.scheduledTimer(timeInterval: 10, target: self,
                                 // selector: #selector(self.callLocation), userInfo: nil, repeats: true)
-        locationObj.getLocation()
-
+       // locationObj.getLocation()
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isTranslucent = false
