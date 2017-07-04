@@ -33,6 +33,8 @@ For receiving location information below notification handler method is used. In
 ```swift
 func receivingLocationNotification(notification: Notification)
 ```
+
+
 ### Filter user location based on accuracy
 #### Description
 Based on the selected accuracy will get the user location.
@@ -49,11 +51,11 @@ To enable location services in background into your project. Go to targets in `c
 Pass the location should enable in background value to `public func enabledLocationInBackground(_ isEnable: Bool)` menthod in `InnoLocation` class
 ```swift
 func enabledValueChanged(_ sender: UISwitch) {
-  if sender.isOn {
-    locationObj.enabledLocationInBackground(true)
-  } else {
-    locationObj.enabledLocationInBackground(false)
- }
+if sender.isOn {
+locationObj.enabledLocationInBackground(true)
+} else {
+locationObj.enabledLocationInBackground(false)
+}
 }
 ```
 ![InnoHome Icon](Resources/InnoHome.png "InnoHome Icon")
@@ -65,6 +67,40 @@ To set the distanceFilter value pass the required value to `public func setDista
 ```swift
 locationObj.setDistanceFilter(Double(self.filterValueTF.text!)!)
 ```
+### Forward Geocoding
+#### Description
+With `InnoGetLocation`, you can get the latitude and longitude values of address provided by user
+#### Usage
+Create an `InnoGetLocation` object .
+```swift
+var locationObj = InnoGetLocation()
+```
+Call the forward geocoding method by passing address as parameter and it returns the latitude and longitude values.
+```swift
+locationObj.forwardGeocoding(address: addressLocation) { (locationValue) in
+self.geocodeButton.isHidden = false
+self.activityIndicatorView.stopAnimating()
+self.locationLabel.text = locationValue
+}
+```
+![InnoForwardGeocoding Icon](Resources/InnoForwardGeocoding.png "InnoForwardGeocoding Icon")
+### Reverse Geocoding
+#### Description
+With `InnoGetLocation`, you can get the location address value from latitude and longitude provided by user
+#### Usage
+Create an `InnoGetLocation` object .
+```swift
+var locationObj = InnoGetLocation()
+```
+Call the reverse geocoding method by passing latitude and longitude as parameter and it returns the location address value.
+```swift
+locationObj.reverseGeocoding(lat: latitude, long: longitude) { (resultAddress) in
+self.reverseGeocodeButton.isHidden = false
+self.activityIndicatorView.stopAnimating()
+self.locationLabel.text = resultAddress
+}
+```
+![InnoReverseGeocoding Icon](Resources/InnoReverseGeocoding.png "InnoReverseGeocoding Icon")
 ### Support for GoogleMaps
 #### Description
 It shows the user location in google map.
@@ -128,13 +164,13 @@ let geocoder = GMSGeocoder()
 geocoder.reverseGeocodeCoordinate(
 CLLocationCoordinate2DMake(coordinations.latitude, coordinations.longitude)) 
 { response, error in
-   if error == nil {
-     if let address = response?.firstResult() {
-       print("Address from google  \(address)")
-       marker.title = address.locality
-       marker.snippet = address.administrativeArea
-     }
-   }
+if error == nil {
+if let address = response?.firstResult() {
+print("Address from google  \(address)")
+marker.title = address.locality
+marker.snippet = address.administrativeArea
+}
+}
 }
 ```
 ![InnoGoogleLocation Icon](Resources/InnoGoogleLocation.png "InnoGoogleLocation Icon")
