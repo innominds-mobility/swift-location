@@ -9,6 +9,9 @@
 import UIKit
 
 public final class InnoLocationIq: NSObject {
+    /// Reverse Geocoding
+    /// from latitude and longitude values finds the
+    /// locationIq full details
     public func locationIqReverseGeocoding(lat: Double,
                                            long: Double,
                                            completion: @escaping (_ value: [String: Any]?,
@@ -31,6 +34,9 @@ public final class InnoLocationIq: NSObject {
         })
         task.resume()
     }
+    /// Forward Geocoding
+    /// from address finds the
+    /// locationIq latitude and longitude values
     public func locationIqForwardGeocoding(address: String,
                                            completion: @escaping (_ value: Array<Any>?, _ errorStr: Error?) -> Void) {
         let urlStr = "http://locationiq.org/v1/search.php?key=8aeb1851e34b30897833&format=json&q=\(address)"

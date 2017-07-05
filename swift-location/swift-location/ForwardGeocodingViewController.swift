@@ -28,9 +28,12 @@ class ForwardGeocodingViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     // label for displaying latitude and longitude values
     @IBOutlet var locationLabel: UILabel!
+    /// Object for InnoLocationIq class
     var locationIqObj = InnoLocationIq()
+    /// Data model: location values will be the data for the table view cells
     let locationDetails = NSMutableArray()
     let cellReUseIdentifier = "cell"
+    // button for perform action to get locationIq values
     @IBOutlet weak var locationIqGeocodeBtn: UIButton!
     @IBOutlet weak var locationIqActivityIndicatorView: UIActivityIndicatorView!
 
@@ -64,6 +67,9 @@ class ForwardGeocodingViewController: UIViewController, UITableViewDataSource, U
             self.locationLabel.text = locationValue
         }
     }
+    /// Pass the address to locationIq forward gecoding
+    /// and returns the result coordinates value
+    /// displays the value in tableview cells
     @IBAction func locationIqGeocodeBtnAction(_ sender: Any) {
         guard let countryName = countryTextField.text else { return }
         guard let streetName = streetTextField.text else { return }

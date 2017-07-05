@@ -220,6 +220,7 @@ locationIqObj.locationIqForwardGeocoding(address: addressLocation) { (resultValu
 }
 ```
 ![InnoLocationIqForwardGeocoding Icon](Resources/InnoLocationIqForwardGeocoding.png "InnoLocationIqForwardGeocoding Icon")
+
 For reverse geocoding call the `locationIqReverseGeocoding` method by passing latitude and longitude values as parameter and it returns the address . Update the UI with the result values.
 ```swift
 locationIqObj.locationIqReverseGeocoding(lat: latitude, long: longitude) { (resultValue, error) in

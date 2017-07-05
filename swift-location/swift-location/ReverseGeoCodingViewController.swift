@@ -25,9 +25,12 @@ class ReverseGeoCodingViewController: UIViewController {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     // label for displaying address value
     @IBOutlet var locationLabel: UILabel!
+    /// Object for InnoLocationIq class
     var locationIqObj = InnoLocationIq()
+    // button for perform action to get locationIq values
     @IBOutlet weak var locationIqButton: UIButton!
     @IBOutlet weak var locationIqActivityIndicatorView: UIActivityIndicatorView!
+    // label for displaying locationIq address value
     @IBOutlet weak var locationIqLabel: UILabel!
 
     override func viewDidLoad() {
@@ -52,6 +55,9 @@ class ReverseGeoCodingViewController: UIViewController {
             self.locationLabel.text = resultAddress
         }
     }
+    /// Pass the coordinates to locationIq reverse gecoding
+    /// and returns the result address value
+    /// displays the value in label
     @IBAction func locationIqBtnAction(_ sender: Any) {
         self.locationIqLabel.text = ""
         guard let latitudeValue = latitudeTextField.text, let latitude = Double(latitudeValue) else { return }
