@@ -34,7 +34,6 @@ For receiving location information below notification handler method is used. In
 func receivingLocationNotification(notification: Notification)
 ```
 
-
 ### Filter user location based on accuracy
 #### Description
 Based on the selected accuracy will get the user location.
@@ -197,3 +196,40 @@ annotationPin.coordinate = userLocation.coordinate
 self.mapView.addAnnotation(annotationPin)
 ```
 ![InnoAppleLocation Icon](Resources/InnoAppleLocation.png "InnoAppleLocation Icon")
+### Support for Locationiq
+#### Description
+With `InnoLocationIq`, you can do the forward and reverse geocoding.
+#### Usage
+Create an `InnoLocationIq` object .
+```swift
+var locationIqObj = InnoLocationIq()
+```
+For forward geocoding call the `locationIqForwardGeocoding` method by passing address as parameter and it returns the latitude and longitude values. Update the UI with the result values.
+```swift
+locationIqObj.locationIqForwardGeocoding(address: addressLocation) { (resultValue, error) in
+    if error == nil {
+            self.locationDetails.removeAllObjects()
+            self.locationDetails.addObjects(from: resultValue!)
+            DispatchQueue.main.async {
+                self.locationIqGeocodeBtn.isHidden = false
+                self.locationIqActivityIndicatorView.stopAnimating()
+                self.locationTableView.reloadData()
+
+        }
+    }
+}
+```
+![InnoLocationIqForwardGeocoding Icon](Resources/InnoLocationIqForwardGeocoding.png "InnoLocationIqForwardGeocoding Icon")
+For reverse geocoding call the `locationIqReverseGeocoding` method by passing latitude and longitude values as parameter and it returns the address . Update the UI with the result values.
+```swift
+locationIqObj.locationIqReverseGeocoding(lat: latitude, long: longitude) { (resultValue, error) in
+    if error == nil {
+        DispatchQueue.main.async {
+            self.locationIqButton.isHidden = false
+            self.locationIqActivityIndicatorView.stopAnimating()
+            self.locationIqLabel.text = (resultValue as AnyObject).value(forKey: "display_name") as? String
+        }
+    }
+}
+```
+![InnoLocationIqReverseGeocoding Icon](Resources/InnoLocationIqReverseGeocoding.png "InnoLocationIqReverseGeocoding Icon")
